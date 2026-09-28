@@ -1,0 +1,20 @@
+CRITICAL - 2026-09-25 14:05:17 --> Error: Call to a member function findAll() on array
+[Method: GET, Route: api/livres]
+in APPPATH/Controllers/Api/Livres.php on line 27.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\Livres->index()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/itu/Téléchargements/framework-4.7.4/public/index.php')
+CRITICAL - 2026-09-25 14:09:20 --> Error: Call to a member function findAll() on array
+[Method: GET, Route: api/livres]
+in APPPATH/Controllers/Api/Livres.php on line 27.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\Livres->index()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/itu/Téléchargements/framework-4.7.4/public/index.php')
