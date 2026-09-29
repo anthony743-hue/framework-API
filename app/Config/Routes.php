@@ -16,18 +16,16 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api\v1'], static function
     // Members
     $routes->resource('members', ['except' => 'new,edit']);
 
-    $routes->resource('emprunts', ['except' => 'new,edit,index,delete']);
-
     // Sous-routes membres
     $routes->group('members', static function ($routes) {
-        $routes->get('(:num)/(:num)', 'Members::index/$1/$2');
-
         $routes->get('(:num)/emprunts', 'Emprunts::empruntsDuMembre/$1');
 
         $routes->get('(:num)/emprunts/(:num)', 'Emprunts::empruntDuMembre/$1/$2');
 
         $routes->post('(:num)/emprunts/(:num)', 'Emprunts::createPourMembre/$1/$2');
 
-        $routes->patch('(:num)/emprunts/(:num)', 'Emprunts::createPourMembre/$1/$2');
+        $routes->patch('(:num)/emprunts/(:num)', 'Emprunts::update/$1');
     });
+
+    $routes->resource('emprunts', ['only' => 'create,show']);
 });

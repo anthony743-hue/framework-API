@@ -32,8 +32,35 @@ class EmpruntsModel extends Model
     ];
 
     // Tous les emprunts d'un membre
-    public function findByMember(int $members_id)
+    public function findByMemberOrByEmprunt($members_id,$emprunt_id=null)
     {
-        return $this->where('members_id', $members_id)->findAll();
+        return $this->where('members_id', $members_id)
+                    ->orWhere('emprunt_id', $emprunt_id)
+                    ->findAll();
+    }
+
+    public function justifyEmpruntExistence($members_id, $livres_id)
+    {
+        if ($members_id == null || $livres_id == null) {
+            return false;
+        }
+
+        $membre = model(MemberModel::class)->find($members_id);
+        if (!$membre) {
+            return false;
+        }
+
+        $livre = model(LivreModel::class)->find($livres_id);
+        if (!$livre) {
+            return false;
+        }
+
+        $dejaEmprunte = $this->model
+            ->where('livres_id', $livres_id)
+            ->where('date_retour', null)
+            ->sort('data_emprunt')
+            ->first();
+
+        return $dejaEmprunte === null;
     }
 }
